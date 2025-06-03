@@ -1,14 +1,18 @@
 .footer {
-  text-align: center;
+  display: flex;
   padding: 10px;
   padding-top: 60px;
   padding-bottom: 60px;
-  font-size: 16px;
   color: #212121b2;
   line-height: 100%;
-  line-height: 60px;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer__copyright {
+  text-align: center;
+  opacity: 0.7;
+  font-weight: 400;
+  font-size: 16px;
   margin: 0;
 }
