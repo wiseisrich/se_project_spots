@@ -2,10 +2,10 @@
   padding-top: 20px;
   padding-bottom: 36px;
   border-bottom: 1px rgba(33, 33, 33, 0.4) solid;
-  max-width: 100%;
   margin: 0 auto;
   display: flex;
   justify-content: center;
+  max-width: 1280px;
 }
 
 .cards__list {
