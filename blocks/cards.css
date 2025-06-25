@@ -28,7 +28,7 @@
 
   .cards__list {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 20px;
     max-width: 288px;
     margin: 0 auto;
   }

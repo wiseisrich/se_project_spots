@@ -128,12 +128,12 @@
 
   .profile__name {
     font-size: 20px;
-    margin-bottom: 0 0 6px;
+    margin: 0 0 6px;
     max-width: 288px;
   }
 
   .profile__column {
-    text-align: center;
+    align-items: center;
     margin: 0 0 20px;
   }
 
