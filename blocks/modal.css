@@ -24,19 +24,35 @@
   background-color: #fff;
   padding: 32px 50px;
   position: relative;
+  gap: 32px;
+  box-sizing: border-box;
 }
 
 .modal__close-btn {
   background-image: url(../images/Close\ Icon.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  opacity: 0.4;
+  color: rgba(33, 33, 33, 1);
   position: absolute;
-  top: 32px;
-  right: 50px;
+  top: 28px;
+  right: 32px;
   width: 40px;
   height: 40px;
 }
 
 .modal__title {
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 100%;
   margin: 0 0 32px;
+  width: 149px;
+  height: 32px;
+  color: rgba(33, 33, 33, 1);
 }
 
 .modal__form {
@@ -54,7 +70,7 @@
   font-weight: 500;
   display: block;
   margin: 8px 0 0;
-  height: 50px;
+  height: 40px;
   width: 630px;
 }
 
