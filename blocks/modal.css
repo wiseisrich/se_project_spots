@@ -1,7 +1,7 @@
 .modal {
+  visibility: hidden;
   font-family: Poppins, Arial, Helvetica, sans-serif;
   font-weight: 500;
-  visibility: hidden;
   background-color: #00000080;
   position: fixed;
   top: 0;
@@ -52,6 +52,9 @@
   margin: 0 0 32px;
   width: 149px;
   height: 32px;
+  position: relative;
+  border-radius: 8px;
+  box-sizing: border-box;
   color: rgba(33, 33, 33, 1);
 }
 
@@ -68,6 +71,7 @@
 .modal__input {
   font-family: Poppins, Arial, Helvetica, sans-serif;
   font-weight: 500;
+  visibility: hidden;
   display: block;
   margin: 8px 0 0;
   height: 40px;
