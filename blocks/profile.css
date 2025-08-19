@@ -59,7 +59,6 @@
   background-color: transparent;
   border: none;
   display: flex;
-  font-weight: 500;
   font-size: 16px;
   line-height: 100%;
   gap: 8px;
@@ -96,14 +95,22 @@
   margin-left: auto;
 }
 
-.profile__new-post-icon {
-  padding-right: 4px;
-  max-width: 73px;
-  height: 16px;
+.profile__new-post-btn {
   font-family: Poppins, Arial, Helvetica, sans-serif;
   font-weight: 500;
-  size: 16px;
-  line-height: 100%;
+  position: absolute;
+  margin-top: 188px;
+  margin-right: 76px;
+  right: 82px;
+  bottom: 20px;
+  width: 157px;
+  height: 52px;
+  right: 32px;
+  top: 32px;
+  border-radius: 8px;
+  color: #fcf5e5;
+  gap: 8px;
+  background-color: rgba(33, 33, 33, 1);
 }
 
 .profile__add-btn-hover {
