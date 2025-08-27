@@ -13,13 +13,13 @@
   padding: 0;
   margin: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, 413px);
+  grid-template-columns: minmax(min(413px, 100%), 1fr);
   justify-content: center;
   gap: 40px 20px;
   width: 100%;
 }
 
-@media screen and (max-width: 627px) {
+@media screen and (max-width: 764px) {
   .cards {
     padding-bottom: 12px;
     padding-left: 20px;
