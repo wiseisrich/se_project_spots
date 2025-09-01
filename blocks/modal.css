@@ -31,7 +31,7 @@
 }
 
 .modal__close-btn {
-  background-image: url(../images/Close\ Icon.png);
+  background-image: url(../images/Close/Icon.png);
   background-repeat: no-repeat;
   background-size: 35px 35px;
   background-color: transparent;
@@ -88,7 +88,7 @@
   border: 1px solid rgb(33 33 33);
 }
 
-.modal__button {
+.modal__submit-btn {
   font-size: 16px;
   width: 100%;
   line-height: 1;
@@ -101,7 +101,7 @@
   transition: 0.3s;
 }
 
-.modal__button:hover {
+.modal__submit-btn {
   background: rgba(0, 0, 0, 0.8);
   cursor: pointer;
 }
@@ -115,17 +115,11 @@
   }
 
   .modal__close-btn {
-    color: rgba(33, 33, 33, 0.4);
+    top: 22px;
+    right: 12px;
   }
 
   .modal__submit-btn {
-    max-width: 156px;
-    width: 100%;
-    border-radius: 8px;
-    color: rgba(255, 255, 255, 1);
-    background-color: #212121;
-    gap: 32px;
-    width: 156px;
-    height: 52px;
+    max-width: none;
   }
 }
