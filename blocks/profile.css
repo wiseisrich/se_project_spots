@@ -79,6 +79,7 @@
   font-weight: 500;
   display: flex;
   border-radius: 8px;
+  cursor: pointer;
   width: 157px;
   height: 52px;
   border: none;
