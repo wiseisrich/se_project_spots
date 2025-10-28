@@ -1,5 +1,6 @@
 .card {
   font-family: Poppins, Arial, Helvetica, sans-serif;
+  position: relative;
 }
 
 .card__image {
@@ -9,6 +10,22 @@
   display: block;
   border-radius: 8px;
   margin-bottom: 12px;
+}
+
+.card__delete-btn {
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  border: none;
+  background-color: transparent;
+  top: 10px;
+  right: 10px;
+  background-image: url(../images/State=Default.svg);
+}
+
+.card__delete-btn:hover {
+  background-image: url(../images/trash-icon-Hover.svg);
+  cursor: pointer;
 }
 
 .card__content {
@@ -23,8 +40,20 @@
   height: 20px;
   border: none;
   background-color: transparent;
-  opacity: 40%;
+  opacity: 1;
   cursor: pointer;
+}
+
+.card__like-btn:hover {
+  opacity: 0.4;
+}
+
+.card__like-btn_active {
+  background-image: url(../images/like-icon-active.svg);
+}
+
+.card__like-btn_active:hover {
+  opacity: 0.4s;
 }
 
 .card__title {
@@ -37,10 +66,6 @@
   max-width: 353px;
   margin: 0;
   color: #212121;
-}
-
-.card__like-btn:hover {
-  opacity: 100%;
 }
 
 @media screen and (max-width: 627px) {
