@@ -10,6 +10,7 @@
   display: block;
   border-radius: 8px;
   margin-bottom: 12px;
+  cursor: pointer;
 }
 
 .card__delete-btn {
@@ -42,6 +43,8 @@
   background-color: transparent;
   opacity: 1;
   cursor: pointer;
+  background-repeat: no-repeat;
+  background-color: transparent;
 }
 
 .card__like-btn:hover {
@@ -53,7 +56,9 @@
 }
 
 .card__like-btn_active:hover {
-  opacity: 0.4s;
+  opacity: 0.4;
+  background-repeat: no-repeat;
+  background-color: transparent;
 }
 
 .card__title {

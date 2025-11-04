@@ -33,7 +33,6 @@
   max-width: 420px;
   line-height: 100%;
   font-size: 32px;
-  height: 32px;
   color: #212121;
 }
 
@@ -49,8 +48,8 @@
   line-height: 100%;
   color: #212121;
   opacity: 0.7;
-  width: 97px;
-  height: 16px;
+  height: auto;
+  text-overflow: clip;
 }
 
 .profile__edit-btn {
@@ -70,6 +69,10 @@
   color: #212121;
   cursor: pointer;
   transition: opacity 0.3s ease-in-out;
+}
+
+.profile__edit-btn:hover {
+  opacity: 1;
 }
 
 .profile__new-post-btn {
