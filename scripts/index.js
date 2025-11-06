@@ -108,10 +108,6 @@ editProfileCloseBtn.addEventListener("click", function () {
   closeModal(editProfileModal);
 });
 
-addCardForm.addEventListener("submit", function () {
-  openModal(editProfileModal);
-});
-
 addCardForm.addEventListener("submit", function (evt) {
   evt.preventDefault();
 });
@@ -147,7 +143,7 @@ function handleAddCardSubmit(evt) {
 
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
-  form.reset();
+  addCardForm.reset();
 }
 
 editProfileForm.addEventListener("submit", handleEditProfileSubmit);

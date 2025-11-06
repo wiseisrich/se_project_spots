@@ -57,7 +57,7 @@
   background-image: url(../images/close-icon-white.svg);
 }
 
-.modal__close:hover {
+.modal__close-btn:hover {
   opacity: 1;
 }
 
@@ -160,7 +160,7 @@
   padding-top: 4px;
   padding-right: 4px;
   padding-bottom: 4px;
-  padding-left: 4;
+  padding-left: 4px;
   max-width: 200px;
 }
 
@@ -194,7 +194,7 @@
 
 @media screen and (max-width: 627px) {
   /*placed below the 480px media query to avoid being overwritten.*/
-  .modal__close_type_preview {
+  .modal__close-btn_type_preview {
     top: -48px;
     right: 0;
   }
