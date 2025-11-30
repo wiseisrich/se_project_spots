@@ -1,0 +1,19 @@
+.form__input_type_error {
+  border: 1px solid red;
+}
+
+.form__input-error {
+  display: none;
+  color: red;
+  font-size: 12px;
+}
+
+.form__input-error_active {
+  display: block;
+}
+
+.form__submit-button_disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+}

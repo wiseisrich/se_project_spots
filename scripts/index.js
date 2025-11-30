@@ -56,6 +56,12 @@ const previewImageEl = previewModal.querySelector(".modal__image");
 
 const modals = document.querySelectorAll(".modal");
 
+function handleModalClick(evt) {
+  if (evt.target.classList.contains('moda') ||
+    evt.target.classList.contains('modal__close-btn')) {
+  closeModal(config);
+}
+
 const cardTemplate = document
   .querySelector("#card-template")
   .content.querySelector(".card");
@@ -94,11 +100,30 @@ function openModal(modal) {
   modal.classList.add("modal_is-opened");
 }
 
+function openModal(modal) {
+  modal.addEventListener('click', handleModalClick);
+}
+
+function handleEscape(evt) {
+  if (evt.key === 'Escape') {
+    const open = document.querySelector('.modal[open]');
+    if (open) closeModal(open);
+  }
+}
+
+document.addEventListener('keydown', handleEscape)
+
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
 }
 
-editProfileBtn.addEventListener("click", function () {
+document.removeEventListener('keydown', handleEscape)
+
+function closeModal(modal) {
+  modal.addEventListenerEventListener('click', handleModalClick);
+}
+
+editProfileBtn.removeEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent;
   editProfileDescriptionInput.value = profileDescriptionEl.textContent;
   openModal(editProfileModal);
@@ -134,7 +159,7 @@ function handleEditProfileSubmit(evt) {
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
   console.log(nameInputEl.value, linkInputEl.value);
-  closeModal(editProfileModal);
+  closeModal(newPostModal);
 
   const inputValues = {
     name: nameInputEl.value,

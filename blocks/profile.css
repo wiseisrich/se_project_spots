@@ -42,14 +42,16 @@
   font-weight: 500;
   text-overflow: ellipsis;
   overflow: hidden;
+  display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+  -webkit-line-clamp: [numer of lines];
   font-size: 16px;
   line-height: 100%;
   color: #212121;
   opacity: 0.7;
   height: auto;
-  text-overflow: clip;
+  text-overflow: ellipsis;
 }
 
 .profile__edit-btn {
