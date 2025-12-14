@@ -23,7 +23,7 @@ const checkInputValidity = (formEl, inputEl, config) => {
   if (!inputEl.validity.valid) {
     showInputError(formEl, inputEl, inputEl.validationMessage, config);
   } else {
-    hideInputError(formEl, inputEl, config);
+    hideInputError(config, formEl, inputEl);
   }
 };
 
