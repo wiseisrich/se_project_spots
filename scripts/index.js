@@ -57,13 +57,17 @@ const previewImageEl = previewModal.querySelector(".modal__image");
 const modals = document.querySelectorAll(".modal");
 
 function handleModalClick(evt) {
-  if (
-    evt.target.classList.contains("moda") ||
-    evt.target.classList.contains("modal__close-btn")
-  ) {
-    closeModal(config);
+  if (evt.target.classList.contains("modal")) {
+    closeModal(evt.target);
   }
 }
+
+modals.forEach((modal) => {
+  modal.addEventListener("mousedown", handleModalClick);
+});
+
+closeModal(config);
+
 const cardTemplate = document
   .querySelector("#card-template")
   .content.querySelector(".card");
@@ -104,8 +108,8 @@ function openModal(modal) {
 
 function handleEscape(evt) {
   if (evt.key === "Escape") {
-    const open = document.querySelector(".modal[open]");
-    if (open) closeModal(open);
+    const openModal = document.querySelector(".modal_is-[open]");
+    if (openModal) closeModal(openModal);
   }
 }
 
@@ -114,8 +118,6 @@ document.addEventListener("keydown", handleEscape);
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
 }
-
-document.removeEventListener("keydown", handleEscape);
 
 editProfileBtn.addEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent;
