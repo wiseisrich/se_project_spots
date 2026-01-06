@@ -57,7 +57,6 @@ const resetValidation = (formEl, inputList) => {
 const setEventListeners = (formEl, config) => {
   const inputList = Array.from(formEl.querySelectorAll(config.inputSelector));
   const buttonElement = formEl.querySelector(config.submitButtonSelector);
-  console.log(buttonElement);
 
   toggleButtonState(inputList, buttonElement, config);
 

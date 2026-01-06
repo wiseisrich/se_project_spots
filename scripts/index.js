@@ -66,8 +66,6 @@ modals.forEach((modal) => {
   modal.addEventListener("mousedown", handleModalClick);
 });
 
-closeModal(config);
-
 const cardTemplate = document
   .querySelector("#card-template")
   .content.querySelector(".card");
@@ -154,7 +152,6 @@ function handleEditProfileSubmit(evt) {
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
-  console.log(nameInputEl.value, linkInputEl.value);
   closeModal(newPostModal);
 
   const inputValues = {
