@@ -1,5 +1,7 @@
 import "../pages/index.css";
+
 import { enableValidation, settings } from "../scripts/validation.js";
+import { setButtonText } from "../../utils/helpers.js";
 import Api from "../utils/Api.js";
 
 const initialCards = [
@@ -174,7 +176,7 @@ function handleDeleteCard(cardElement, cardId) {
   openModal(deleteModal);
 }
 
-function handleLike(evt) {
+function handleLike(evt, id) {
   evt.target.classList.toggle("card__like-button_active");
 }
 
@@ -210,6 +212,11 @@ avatarModalBtn.addEventListener("click", () => {
 
 function handleEditProfileSubmit(evt) {
   evt.preventDefault();
+
+  const submitBtn = evt.submitter;
+  submitBtn.textContent = "Saving...";
+  setButtonText(submitBtn, true, "Save", "Saving...");
+
   api
     .editUserInfo({
       name: editProfileNameInput.value,
@@ -220,7 +227,10 @@ function handleEditProfileSubmit(evt) {
       profileDescriptionEl.textContent = editProfileDescriptionInput.value;
       closeModal(editProfileModal);
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => {
+      submitBtn.textContent = "Save";
+    });
 }
 
 function handleAddCardSubmit(evt) {
@@ -231,6 +241,11 @@ function handleAddCardSubmit(evt) {
     name: nameInputEl.value,
     link: linkInputEl.value,
   };
+
+  likeButton.addEventListener("click", (evt) => handleLike(evt, data._id));
+  deleteButton.addEventListener("click", () =>
+    handleDeleteCard(cardElement, data._id)
+  );
 
   avatarModalBtn.addEventListener("click", () => {
     openModal(avatarModal);
