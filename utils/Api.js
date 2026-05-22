@@ -5,7 +5,7 @@ class Api {
   }
 
   getAppInfo() {
-    return promise.all([this.getInitialCards()]);
+    return Promise.all([this.getInitialCards(), this.getUser()]);
   }
 
   getInitialCards() {
@@ -15,7 +15,34 @@ class Api {
       if (res.ok) {
         return res.json();
       }
-      promise.reject(`Error: ${res.status}`);
+      Promise.reject(`Error: ${res.status}`);
+    });
+  }
+
+  getUser() {
+    return fetch(`${this._baseUrl}/users/me`, {
+      headers: this._headers,
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      Promise.reject(`Error: ${res.status}`);
+    });
+  }
+
+  addCard({ name, link }) {
+    return fetch(`${this._baseUrl}/cards`, {
+      method: "POST",
+      headers: this._headers,
+      body: JSON.stringify({
+        name,
+        link,
+      }),
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      Promise.reject(`Error: ${res.status}`);
     });
   }
 
@@ -31,7 +58,7 @@ class Api {
       if (res.ok) {
         return res.json();
       }
-      promise.reject(`Error: ${res.status}`);
+      Promise.reject(`Error: ${res.status}`);
     });
   }
 
@@ -46,31 +73,19 @@ class Api {
       if (res.ok) {
         return res.json();
       }
-      promise.reject(`Error: ${res.status}`);
+      Promise.reject(`Error: ${res.status}`);
     });
   }
 
   deleteCard(id) {
-    return fetch(`${this._baseUrl}/cards/${Id}`, {
+    return fetch(`${this._baseUrl}/cards/${id}`, {
       method: "Delete",
       headers: this._headers,
     }).then((res) => {
       if (res.ok) {
         return res.json();
       }
-      promise.reject(`Error: ${res.status}`);
-    });
-  }
-
-  addLike(id) {
-    return fetch(`${this._baseUrl}/cards/${Id}/likes`, {
-      method: "put",
-      headers: this._headers,
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      promise.reject(`Error: ${res.status}`);
+      Promise.reject(`Error: ${res.status}`);
     });
   }
 
@@ -82,7 +97,7 @@ class Api {
       if (res.ok) {
         return res.json();
       }
-      promise.reject(`Error: ${res.status}`);
+      Promise.reject(`Error: ${res.status}`);
     });
   }
 }
