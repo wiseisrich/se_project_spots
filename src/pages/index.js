@@ -1,6 +1,10 @@
 import "../pages/index.css";
 
-import { enableValidation, settings } from "../scripts/validation.js";
+import {
+  enableValidation,
+  settings,
+  disableButton,
+} from "../scripts/validation.js";
 import { setButtonText } from "../../utils/helpers.js";
 import Api from "../../utils/Api.js";
 
@@ -135,23 +139,37 @@ function closeModal(modal) {
 
 function handleAvatarSubmit(evt) {
   evt.preventDefault();
+  const submitBtn = evt.submitter;
+  submitBtn.textContent = "Saving...";
   api
     .editAvatarInfo(avatarInput.value)
     .then((data) => {
       console.log(data.avatar);
+      setUserData(data);
+      evt.target.reset();
+      disableButton(submitBtn, settings);
+      closeModal(avatarModal);
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => {
+      submitBtn.textContent = "Save";
+    });
 }
 
 function handleDeleteSubmit(evt) {
   evt.preventDefault();
+  const submitBtn = evt.submitter;
+  submitBtn.textContent = "Delete...";
   api
     .deleteCard(selectedCardId)
     .then(() => {
       selectedCard.remove();
       closeModal(deleteModal);
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => {
+      submitBtn.textContent = "Delete";
+    });
 }
 
 function handleDeleteCard(cardElement, cardId) {
@@ -230,6 +248,8 @@ function handleAddCardSubmit(evt) {
     name: nameInputEl.value,
     link: linkInputEl.value,
   };
+  const submitBtn = evt.submitter;
+  submitBtn.textContent = "Saving...";
 
   api
     .addCard(inputValues)
@@ -238,8 +258,12 @@ function handleAddCardSubmit(evt) {
       cardsList.prepend(cardElement);
       addCardForm.reset();
       closeModal(newPostModal);
+      disableButton(submitBtn, settings);
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => {
+      submitBtn.textContent = "Save";
+    });
 }
 
 avatarModalBtn.addEventListener("click", () => {
