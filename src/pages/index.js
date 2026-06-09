@@ -4,9 +4,10 @@ import {
   enableValidation,
   settings,
   disableButton,
+  resetValidation,
 } from "../scripts/validation.js";
-import { setButtonText } from "../../utils/helpers.js";
-import Api from "../../utils/Api.js";
+import { setButtonText } from "../utils/helpers.js";
+import Api from "../utils/Api.js";
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
@@ -43,7 +44,7 @@ const editProfileDescriptionInput = editProfileModal.querySelector(
 const avatarImage = document.querySelector(".profile__avatar");
 const avatarModal = document.querySelector("#avatar-modal");
 const avatarForm = avatarModal.querySelector(".modal__form");
-const avatarModalBtn = avatarModal.querySelector(".modal__submit-btn");
+const avatarModalBtn = document.querySelector(".profile__avatar-btn");
 const avatarModalCloseBtn = avatarModal.querySelector(".modal__close");
 const avatarInput = avatarModal.querySelector("profile-avatar-input");
 
@@ -62,7 +63,9 @@ const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn");
 const previewImageEl = previewModal.querySelector(".modal__image");
 
 const deleteModal = document.querySelector("#delete-modal");
-const deleteForm = deleteModal.querySelector(".modal__form");
+const deleteForm = deleteModal.querySelector(".modal__form_delete");
+const deleteCancelBtn = deleteModal.querySelector(".modal__cancel-btn");
+const deleteModalCloseBtn = deleteModal.querySelector(".modal__close-btn");
 
 const modals = document.querySelectorAll(".modal");
 let selectedCard;
@@ -126,7 +129,7 @@ function openModal(modal) {
 
 function handleEscape(evt) {
   if (evt.key === "Escape") {
-    const openModal = document.querySelector(".modal_is-[open]");
+    const openModal = document.querySelector(".modal_is-opened");
     if (openModal) closeModal(openModal);
   }
 }
@@ -191,6 +194,11 @@ function handleLike(evt, id) {
 editProfileBtn.addEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent;
   editProfileDescriptionInput.value = profileDescriptionEl.textContent;
+  const editModalInputs = [
+    ...editProfileModal.querySelectorAll("modal__input"),
+  ];
+
+  resetValidation(editProfileForm, editModalInputs);
   openModal(editProfileModal);
 });
 
@@ -212,6 +220,10 @@ newPostCloseBtn.addEventListener("click", function () {
 
 previewModalCloseBtn.addEventListener("click", function () {
   closeModal(previewModal);
+});
+
+deleteModalCloseBtn.addEventListener("click", function () {
+  closeModal(deleteModal);
 });
 
 avatarModalBtn.addEventListener("click", () => {
@@ -272,6 +284,7 @@ avatarModalBtn.addEventListener("click", () => {
 avatarForm.addEventListener("submit", handleAvatarSubmit);
 
 deleteForm.addEventListener("submit", handleDeleteSubmit);
+deleteCancelBtn.addEventListener("click", () => closeModal(deleteModal));
 editProfileForm.addEventListener("submit", handleEditProfileSubmit);
 addCardForm.addEventListener("submit", handleAddCardSubmit);
 
